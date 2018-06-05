@@ -9,3 +9,4 @@ def multiplication_table(n):
 
 number = int(input("Please enter a number so that I can print the multiplication table :"))
 print(multiplication_table(number))
+ 
