@@ -1,17 +1,21 @@
 from string import ascii_lowercase, ascii_uppercase
 
 def encrypt(strng, sub_str):
-  ciphered = '' # Initializing a variable to store the cipher text
-  for char in strng: # Loopin through each character of the string to find and replace it with the appropriate cipher
-    if(char in ascii_lowercase): #To handle the lower case letter
-      ciphered = f'{ciphered}{sub_str[ord(char)-97]}' # replacing the lower case letter with corressponding case
-    elif(char in ascii_uppercase): #To handle the upper case letter and 
-      ascii_number = ord(sub_str[ord(char)-65])
-      ciphered = f'{ciphered}{chr(ascii_number-32)}' # replacing the upper case letter with corressponding case
+  encrypted = '' 
+
+  for char in strng: 
+    ascii_no = ord(char.lower())
+
+    if(char in ascii_lowercase): 
+      encrypted = f'{encrypted}{sub_str[ascii_no-97]}'
+
+    elif(char in ascii_uppercase): 
+      encrypted = f'{encrypted}{sub_str[ascii_no-97].upper()}' 
+
     else:
-      ciphered = f'{ciphered}{char}' # If the char is not a valid Alphabet then using the same char
-  # Retrun the cipher string
-  return ciphered
+      encrypted = f'{encrypted}{char}' 
+  
+  return encrypted
 
 def decrypt(strng,sub_str):
   decrypted = ''
