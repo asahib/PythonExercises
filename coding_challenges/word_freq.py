@@ -3,16 +3,29 @@
 # should accept any text as an argument
 
 def word_frequency(strg):
-  dictionary = dict()
+  word_count_dict = dict()
+  char_count_dict = dict()
   for word in strg.split():
-    dictionary[word] = (dictionary[word] + 1) if (dictionary.get(word,False)) else 1
-  return dictionary
+    word_count_dict[word] = (word_count_dict[word] + 1) if (word_count_dict.get(word,False)) else 1
+  for char in strg:
+    char_count_dict[char] = (char_count_dict[char] + 1) if (char_count_dict.get(char,False)) else 1
+  return (word_count_dict, char_count_dict)
+
+def print_counts(dict):
+  for key, value in dict.items():
+    print(key, " : ", value)
 
 def main():
   sentence = input("Enter any input string \n")
-  word_cout = word_frequency(sentence)
-  for key, value in word_cout.items():
-    print(key, " : ", value)
-
+  word_counts, char_counts = word_frequency(sentence)
+  option = int(input("Please enter an option 1, 2 or 3\n 1. Word Count\n 2. Char Count\n 3. Both\nEnter option here"))
+  if option==1:
+    print_counts(word_counts)
+  elif option==2:
+    print_counts(char_counts)
+  else:
+    print_counts(word_counts)
+    print_counts(char_counts)
+    
 if __name__ == '__main__':
   main()
