@@ -3,10 +3,12 @@ def testEqual(s1, s2):
 
 def sort_contacts(contacts):
   contact_tuples = [(name,contact[0], contact[1]) for name, contact in contacts.items()]
-  temp_dict ={contact_tuple[0]:(contact_tuple[0],contact_tuple[1],contact_tuple[2]) for contact_tuple in contact_tuples}
-  names = [name for name in temp_dict.keys()]
-  names.sort()
-  return([temp_dict[name] for name in names])
+  contact_tuples.sort(key = lambda tuples:tuples[0])
+#   temp_dict ={contact_tuple[0]:(contact_tuple[0],contact_tuple[1],contact_tuple[2]) for contact_tuple in contact_tuples}
+#   names = [name for name in temp_dict.keys()]
+#   names.sort()
+#   return([temp_dict[name] for name in names])
+  return(contact_tuples)
 
 
 # print(sort_contacts({"Horney, Karen": ("1-541-656-3010", "karen@psychoanalysis.com"),
@@ -35,4 +37,3 @@ testEqual(sort_contacts({"Rimbaud, Arthur": ("1-636-555-5555", "arthur@notlive.c
     'pedro@filmbuffs.com'), ('Kandinsky, Wassily', '1-333-555-9999', 'kandinsky@painters.com'),
     ('Rimbaud, Arthur', '1-636-555-5555', 'arthur@notlive.com'), ('Swinton, Tilda',
     '1-917-222-2222', 'tilda@greatActors.com')])
-
