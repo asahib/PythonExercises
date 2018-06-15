@@ -1,4 +1,5 @@
 from helpers import alphabet_position, rotate_character 
+from sys import argv, exit
 
 def vigenere_encrypt(text, key):
   a_list = [char for char in text]
@@ -16,9 +17,7 @@ def vigenere_encrypt(text, key):
 
 def main():
   message = input("Type a message: \n")
-  encryption_key = input("Encryption key: \n")
-  print(vigenere_encrypt(message, encryption_key))
-
+  print(vigenere_encrypt(message, (argv[1])))
 
 if __name__ == '__main__':
   main()
