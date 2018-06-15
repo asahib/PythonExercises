@@ -6,8 +6,15 @@ def encrypt(text, rot):
   return ''.join(rotate_character(item,rot) for item in a_list)
 
 def main():
-  message = input("\nType a message \n")
-  print(encrypt(message,int(argv[1])))
-
+  encryption_no = 0
+  try:
+    encryption_no = int(argv[1])
+    message = input("\nType a message \n")    
+    print(encrypt(message,encryption_no))
+  except ValueError:
+    print("usage: python caesar.py n\n       where 'n' is a numeric")
+  except IndexError:
+    print("usage: python caesar.py n\n       where 'n' is a numeric")
+  
 if __name__ == "__main__":
     main()
