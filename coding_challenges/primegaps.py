@@ -21,16 +21,6 @@ def gap(diff, start, end):
           break
   return None
 
-
-  '''
-  primes = [item for item in range(start,end+1) if isPrime(item)]
-  for i in range(len(primes)-1):
-    if (primes[i+1] - primes[i]) == diff:
-      return [primes[i],primes[i+1]]
-    elif((primes[i+1] - primes[i]) == diff):
-  '''
-  return None
-
 print(assert_equals(gap(2,100,110),[101,103]))
 print(assert_equals(gap(4,100,110),[103,107]))
 print(assert_equals(gap(6,100,110),None))
