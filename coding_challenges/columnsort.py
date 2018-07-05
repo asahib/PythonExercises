@@ -1,4 +1,5 @@
 import csv
+import sys
 
 def columnsort(text):
   lines = text.split('\n')
@@ -33,31 +34,20 @@ def exchange(line, i, j):
   
   return line
 
-# filename = "input.txt"
-# file = open(filename,'r')
-# for line in file:
-# #   print(line)
+def main():
+  if(sys.argv[1] and sys.argv[2]):
+    inputfilename = sys.argv[1]
+    outputfilename = sys.argv[2]
+    strng = ''
+    with open(inputfilename, newline='\n') as csvfile:
+      inputcontents = csv.reader(csvfile)
+      print(type(inputcontents))
+      for row in inputcontents:
+        strng = f"{strng}{(','.join(row))}\n"
+    strng = columnsort(strng)
 
-# print(type(file))
-# text = """
-# Beth,charles,Charles,Adam,Eric\n
-# 17945,10091,10088,3907,10132\n
-# 2,12,13,48,11
-# """
+  with open(outputfilename,"w") as ocsvfile:
+    ocsvfile.write(strng)
 
-# print(columnsort(file))
-
-strng = ''
-with open('input.csv', newline='\n') as csvfile:
-  spamreader = csv.reader(csvfile)
-  print(type(spamreader))
-  for row in spamreader:
-    strng = f"{strng}{(','.join(row))}\n"
-
-strng = columnsort(strng)
-print(strng)
-
-text_file = open("output.csv","w")
-text_file.write(strng)
-text_file.close()
-
+if __name__ == '__main__':
+  main()
